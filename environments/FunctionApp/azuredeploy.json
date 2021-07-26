@@ -7,9 +7,11 @@
 		"resourcePrefix": "[concat('dtl', uniqueString(resourceGroup().id))]",
 		"storageName": "[concat(variables('resourcePrefix'))]",
 		"functionName":"[concat(variables('resourcePrefix'), '-fa')]",
-		"hostingName": "[concat(variables('resourcePrefix'), '-hp')]"
+		"hostingName": "[concat(variables('resourcePrefix'), '-hp')]",
+		"applicationInsightsName":"[concat(variables('resourcePrefix'), '-ai')]"
 	},
 	"resources": [
+		
 		{
 			"name": "[variables('storageName')]",
 			"type": "Microsoft.Storage/storageAccounts",
@@ -73,10 +75,6 @@
 						{
 							"name": "FUNCTIONS_EXTENSION_VERSION",
 							"value": "~2"
-						},
-						{
-							"name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-							"value": "[reference(resourceId('microsoft.insights/components/', 'applicationInsightsName'), '2015-05-01').InstrumentationKey]"
 						},
 						{
 							"name": "FUNCTIONS_WORKER_RUNTIME",
