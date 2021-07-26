@@ -36,19 +36,7 @@
 				"tier": "Standard"
 			},
 			"properties": {
-				"networkAcls": {
-					"bypass": "AzureServices",
-					"virtualNetworkRules": [
-						{
-							"id": "$(LabSubnetId)",
-							"action": "Allow",
-							"state": "Succeeded"
-						}
-					],
-					"ipRules": [],
-					"defaultAction": "Deny"
-				},
-				"supportsHttpsTrafficOnly": true,
+				"supportsHttpsTrafficOnly": true
 			}
 		},
 		{
