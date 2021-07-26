@@ -7,8 +7,7 @@
 		"resourcePrefix": "[concat('dtl', uniqueString(resourceGroup().id))]",
 		"storageName": "[concat(variables('resourcePrefix'))]",
 		"functionName":"[concat(variables('resourcePrefix'), '-fa')]",
-		"hostingName": "[concat(variables('resourcePrefix'), '-hp')]",
-		"applicationInsightsName":"[concat(variables('resourcePrefix'), '-ai')]"
+		"hostingName": "[concat(variables('resourcePrefix'), '-hp')]"
 	},
 	"resources": [
 		
@@ -29,23 +28,21 @@
 		{
 			"name": "[variables('hostingName')]",
 			"type": "Microsoft.Web/serverfarms",
-			"apiVersion": "2018-02-01",
+			"apiVersion": "2020-06-01",
 			"location": "[resourceGroup().location]",
 			"sku": {
-				"name": "F1",
-				"capacity": 1
+				"name": "EP1",
+				"tier": "ElasticPremium"
 			},
-			"tags": {
-				"displayName": "[variables('hostingName')]"
-			},
+			"kind": "elastic",
 			"properties": {
-				"name": "[variables('hostingName')]"
+				"maximumElasticWorkerCount": 20
 			}
 		},
 		{
 			"name": "[variables('functionName')]",
 			"type": "Microsoft.Web/sites",
-			"apiVersion": "2018-11-01",
+			"apiVersion": "2020-06-01",
 			"location": "[resourceGroup().location]",
 			"kind": "functionapp",
 			"dependsOn": [
