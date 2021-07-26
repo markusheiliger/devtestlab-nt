@@ -137,7 +137,7 @@
                 },
                 "privateLinkServiceConnections": [
                     {
-                        "name": "[parameters('privateLinkConnection_name')]",
+                        "name": "[variables('functionName')]",
                         "properties": {
                             "privateLinkServiceId": "[resourceId('Microsoft.Web/sites', variables('functionName'))]",
                             "groupIds": [
