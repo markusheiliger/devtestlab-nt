@@ -122,32 +122,7 @@
 			"dependsOn": [
 				"[resourceId('Microsoft.Web/sites', variables('functionName'))]"
 			]
-		},
-		        {
-            "type": "Microsoft.Network/privateEndpoints",
-            "apiVersion": "2019-04-01",
-            "name": "[variables('functionEndpointName')]",
-            "location": "[resourceGroup().location]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', variables('functionName'))]"
-            ],
-            "properties": {
-                "subnet": {
-                    "id": "$(LabSubnetId)"
-                },
-                "privateLinkServiceConnections": [
-                    {
-                        "name": "[variables('functionName')]",
-                        "properties": {
-                            "privateLinkServiceId": "[resourceId('Microsoft.Web/sites', variables('functionName'))]",
-                            "groupIds": [
-                                "sites"
-                            ]
-                        }
-                    }
-                ]
-            } 
-        },
+		}
 	],
 	"outputs": {}
 }
