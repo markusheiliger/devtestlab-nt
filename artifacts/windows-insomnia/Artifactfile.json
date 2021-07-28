@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2016-11-28/dtlArtifacts.json",
+  "title": "Insomnia",
+  "publisher": "Markus Heiliger",
+  "description": "Powerful HTTP toolbelt, in one intuitive app",
+  "tags": [
+    "Windows",
+    "Insomnia"
+  ],
+  "targetOsType": "Windows",
+  "iconUri": "https://community.chocolatey.org/content/packageimages/insomnia-rest-api-client.2021.4.1.png",
+  "runCommand": {
+    "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./install-choco-package.ps1 -Packages ', 'insomnia-rest-api-client', '\"')]"
+  }
+}
